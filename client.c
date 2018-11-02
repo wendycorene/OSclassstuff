@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
   size_t read_in = 100;
   while (1)
   {
-    getline(&input2, &readin, strlen(input)+1);
+    getline(&input2, &read_in, strlen(input)+1);
     read(sock, input, 100);
     printf("client got: %s\n", input);
   }
