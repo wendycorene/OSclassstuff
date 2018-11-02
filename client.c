@@ -19,12 +19,12 @@ int main(int argc, char* argv[])
   struct sockaddr_in server;
   struct hostent * host;
   char mesg[] = "hello world";
-  char input(100);
+  char input[100];
   host = gethostbyname (argv[1]);
 
   if (!host)
   {
-    printf("host not found"\n");
+    printf("host not found\n");
     exit(1);
   }
 
