@@ -61,7 +61,7 @@ int main (int argc, char* argv[])
   return 0;
 }
 
-void handlers (int sig)
+void handler (int sig)
 {
   close(sock);
   close(client);
