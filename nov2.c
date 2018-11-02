@@ -18,7 +18,7 @@ int main (int argc, char* argv[])
   sock = socket(AF_INET, SOCK_STREAM, 0);
   signal (SIGINT, handler);
   int i;
-  char data[256] = ();
+  char data[256] = {};
   int size;
   struct sockaddr_in my_address;
   my_address.sin_family = AF_INET;
