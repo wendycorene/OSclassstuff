@@ -28,10 +28,10 @@ int main (int argc, char* argv[])
   if (sock == -1)
   {
     printf("Error creating socket. exiting\n");
-    exit (1);
+    exit(1);
   }
 
-  if (bind(sock, (struct sockaddr*)&my_address, sizeof(struct sockaddr_in)) == -1)
+  if (bind(sock, (struct sockaddr*) &my_address, sizeof(struct sockaddr_in)) == -1)
   {
     printf("Error binding the sock.\n");
     close(sock);
@@ -41,7 +41,21 @@ int main (int argc, char* argv[])
   if (listen(sock,10) == -1)
   {
     printf("Listen errored, exiting.\n");
+    close(sock);
+    exit(1);
   }
+
+  client = accept(sock, NULL, NULL);
+  char * input = calloc(100, sizeof(char));
+  size_t readin = 100;
+  while (1)
+  {
+    read(client, data, 256);
+    printf("Server got: %s\n", data);
+    getline(&input, &readin, stdin);
+    write(client, input, strlen(input)+1);
+  }
+  close (sock);
 
   return 0;
 }
