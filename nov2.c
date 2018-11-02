@@ -56,6 +56,7 @@ int main (int argc, char* argv[])
     write(client, input, strlen(input)+1);
   }
   close (sock);
+  close (client);
 
   return 0;
 }
