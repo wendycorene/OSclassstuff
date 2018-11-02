@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
   server.sin_port = htons(9999);
   memcpy(&server.sin_addr, host->h_addr, host->h_length);
 
-  if (connect(sock, (struct sockaddr*) &my_address, sizeof(struct sockaddr_in)) == -1)
+  if (connect(sock, (const struct sockaddr*) &my_address, sizeof(struct sockaddr_in)) == -1)
   {
     printf("Error connecting the sock.\n");
     close(sock);
